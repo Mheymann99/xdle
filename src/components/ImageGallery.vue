@@ -34,6 +34,7 @@ const cheatMode = ref(false)
 const correctAnswer = '7'
 const win = ref(false)
 const incorrectAnswers = ref(new Set())
+//const hintCounter = ref(0)
 
 onBeforeMount(async () => {
   isFetching.value = true
@@ -85,6 +86,11 @@ function guessCharacter(id: string): void {
     incorrectAnswers.value.add(id)
   }
 }
+
+/*function hint(): void {
+  cheatMode.value = true
+  hintCounter.value += 1
+}*/
 </script>
 
 <template>
@@ -104,7 +110,11 @@ function guessCharacter(id: string): void {
         You guessed {{ counter.count }} times
       </div>
       <div class="flex p-4 gap-2 items-center">
-        <input type="checkbox" v-model="cheatMode" />(cheat)
+        <Button
+          @click="cheatMode = !cheatMode"
+          class="cursor-pointer bg-red-500/70 text-white p-2 rounded-2xl hover:bg-red-500/90 outline-0 transition-all border-0 shadow"
+          >Hint</Button
+        >
       </div>
     </div>
     <transition name="catalog" mode="out-in">
