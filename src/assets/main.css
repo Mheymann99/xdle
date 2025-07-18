@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+body {
+  @apply bg-gray-800 text-gray-200 m-0 p-0;
+}
+.card {
+  @apply p-4 rounded shadow border border-gray-700 bg-gray-900/70 cursor-pointer;
+  transition: all 0.5s ease;
+}
+.card:hover {
+  @apply border-purple-700 bg-purple-900/50;
+}
+.card.wrong {
+  @apply border-red-700 bg-red-900/50;
+  animation: wobble 2s;
+}
+
+.card.winner {
+  @apply border-green-700 bg-green-900/50;
+  animation: bob 2s;
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-5%) rotate(1deg);
+  }
+  50% {
+    transform: translateX(5%) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(-5%) rotate(1deg);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(-5%) rotate(1deg);
+  }
+  50% {
+    transform: translateY(5%) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-5%) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
